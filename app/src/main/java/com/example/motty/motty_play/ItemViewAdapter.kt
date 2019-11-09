@@ -13,6 +13,7 @@ class ItemViewAdapter (private val context: Context, private val itemList: List<
     RecyclerView.Adapter<ItemViewAdapter.ItemViewHolder>(){
 
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view){
+        val rankNumberView: TextView = view.findViewById(R.id.rankNumberText)
         val itemIconImageView: ImageView = view.findViewById(R.id.itemIcon)
         val itemNameTextView: TextView = view.findViewById(R.id.itemNameText)
         val shopNameTextView: TextView = view.findViewById(R.id.shopNameText)
@@ -24,7 +25,7 @@ class ItemViewAdapter (private val context: Context, private val itemList: List<
     override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-//        holder.itemIconImageView.setImageURI(Uri.parse(itemList[position].mediumImageUrls[0]))
+        holder.rankNumberView.text = (position+1).toString()
         Picasso.get()
             .load(itemList[position].mediumImageUrls[0])
             .resize(128,128)
