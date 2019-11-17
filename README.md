@@ -1,1 +1,1 @@
-motty_play
+# 趣味で作ってるAndroidアプリです．
